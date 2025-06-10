@@ -25,7 +25,10 @@ jobs:
       - store_artifacts:
           path: test-results
           destination: test-results
-         
+      - persist_to_workspace:
+          root: .
+          paths:
+            - test-results    
 
 workflows:
   on_commit:
