@@ -22,6 +22,10 @@ jobs:
             pipenv run python manage.py test > test-results/results.txt
       - store_test_results:
           path: test-results
+      - store_artifacts:
+          path: test-results
+          destination: test-results
+         
 
 workflows:
   on_commit:
