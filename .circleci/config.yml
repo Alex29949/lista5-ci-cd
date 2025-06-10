@@ -17,7 +17,11 @@ jobs:
           pkg-manager: pipenv
       - run:
           name: Run Django tests
-          command: pipenv run python manage.py test
+          command: |
+            mkdir -p test-results
+            pipenv run python manage.py test > test-results/results.txt
+      - store_test_results:
+          path: test-results
 
 workflows:
   on_commit:
