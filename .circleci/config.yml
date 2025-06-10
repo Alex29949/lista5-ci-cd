@@ -16,17 +16,8 @@ jobs:
       - python/install-packages:
           pkg-manager: pipenv
       - run:
-          name: Run tests
+          name: Run Django tests
           command: pipenv run python manage.py test
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: test-results
-          destination: test-results
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
 
 workflows:
   on_commit:
